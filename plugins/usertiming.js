@@ -116,10 +116,6 @@
 			var utc = window.UserTimingCompression || BOOMR.window.UserTimingCompression;
 
 			if (typeof utc === "undefined") {
-				var timings, res;
-				timings = utc.compressUserTiming(entries);
-				return utc.compressForUri(timings);
-			} else {
 				if (entries.length == 0) {
 					return null;
 				} else {
@@ -135,6 +131,10 @@
 					}
 					return JSON.stringify(res);
 				}
+			} else {
+				var timings, res;
+				timings = utc.compressUserTiming(entries);
+				return utc.compressForUri(timings);
 			}
 		},
 
